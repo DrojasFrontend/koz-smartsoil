@@ -7,10 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint",
     "data:seed": "node scripts/seed.js"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.14.0",
     "bootstrap": "^5.3.8",
     "next": "14.2.5",
     "react": "^18",
