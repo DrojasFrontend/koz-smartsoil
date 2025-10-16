@@ -14,6 +14,7 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.14.0",
     "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
