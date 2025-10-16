@@ -6,7 +6,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Rutas de los archivos JSON
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const DATA_DIR = process.env.NODE_ENV === 'production' 
+  ? path.join(__dirname, '..', 'public', 'data')
+  : path.join(__dirname, '..', 'data');
 const SECTORES_FILE = path.join(DATA_DIR, 'sectores.json');
 const METRICAS_FILE = path.join(DATA_DIR, 'metricas.json');
 
@@ -59,6 +61,52 @@ async function writeJsonFile(filePath, data) {
  */
 export async function getSectores() {
   try {
+    // En producción, usar fetch para obtener datos estáticos
+    if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
+      // Para API routes en producción, usar los datos embebidos
+      return [
+        {
+          "id": 1,
+          "nombre": "Sector Norte - Paltos",
+          "tipo_cultivo": "Paltos",
+          "area_hectareas": 2.5,
+          "num_sensores": 4,
+          "num_valvulas": 2,
+          "created_at": "2025-10-15T16:15:40.454Z",
+          "updated_at": "2025-10-15T16:15:40.454Z"
+        },
+        {
+          "id": 2,
+          "nombre": "Sector Sur - Tomates",
+          "tipo_cultivo": "Tomates",
+          "area_hectareas": 1.8,
+          "num_sensores": 6,
+          "num_valvulas": 3,
+          "created_at": "2025-10-15T16:15:40.454Z",
+          "updated_at": "2025-10-15T16:15:40.454Z"
+        },
+        {
+          "id": 3,
+          "nombre": "Invernadero A - Lechugas",
+          "tipo_cultivo": "Lechugas",
+          "area_hectareas": 0.5,
+          "num_sensores": 8,
+          "num_valvulas": 4,
+          "created_at": "2025-10-15T16:15:40.454Z",
+          "updated_at": "2025-10-15T16:15:40.454Z"
+        },
+        {
+          "id": 4,
+          "nombre": "Sector Este - Maíz",
+          "tipo_cultivo": "Maíz",
+          "area_hectareas": 3.2,
+          "num_sensores": 5,
+          "num_valvulas": 3,
+          "created_at": "2025-10-15T16:15:40.454Z",
+          "updated_at": "2025-10-15T16:15:40.454Z"
+        }
+      ];
+    }
     return await readJsonFile(SECTORES_FILE, []);
   } catch (error) {
     console.error('Error obteniendo sectores:', error);
@@ -100,6 +148,47 @@ export async function saveSectores(sectores) {
  */
 export async function getMetricas() {
   try {
+    // En producción, usar datos embebidos
+    if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
+      return [
+        {
+          "id": 1,
+          "sector_id": 1,
+          "humedad": 65,
+          "temperatura": 22,
+          "flujo_agua": 0,
+          "ahorro": 45,
+          "timestamp": "2025-10-15T16:15:40.454Z"
+        },
+        {
+          "id": 2,
+          "sector_id": 2,
+          "humedad": 48,
+          "temperatura": 28,
+          "flujo_agua": 25.5,
+          "ahorro": 38,
+          "timestamp": "2025-10-15T16:15:40.454Z"
+        },
+        {
+          "id": 3,
+          "sector_id": 3,
+          "humedad": 72,
+          "temperatura": 24,
+          "flujo_agua": 18.2,
+          "ahorro": 52,
+          "timestamp": "2025-10-15T16:15:40.454Z"
+        },
+        {
+          "id": 4,
+          "sector_id": 4,
+          "humedad": 45,
+          "temperatura": 26,
+          "flujo_agua": 0,
+          "ahorro": 41,
+          "timestamp": "2025-10-15T16:15:40.454Z"
+        }
+      ];
+    }
     return await readJsonFile(METRICAS_FILE, []);
   } catch (error) {
     console.error('Error obteniendo métricas:', error);
