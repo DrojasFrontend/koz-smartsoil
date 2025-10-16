@@ -1,0 +1,245 @@
+/* Import Bootstrap Icons */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
+/* Global styles for the irrigation system dashboard */
+
+:root {
+  --primary-color: #0d6efd;
+  --success-color: #198754;
+  --warning-color: #fd7e14;
+  --danger-color: #dc3545;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --border-radius: 0.5rem;
+  --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --box-shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--light-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom dashboard styles */
+.dashboard-container {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.sector-tabs {
+  margin-bottom: 2rem;
+}
+
+.sector-tabs .nav-link {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.sector-tabs .nav-link.active {
+  background-color: white;
+  border-color: #dee2e6 #dee2e6 white #dee2e6;
+  border-bottom: 2px solid white;
+  margin-bottom: -2px;
+}
+
+.sector-tabs .nav-link:hover:not(.active) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Metric Cards */
+.metric-card {
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.metric-card .card {
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Status Badge */
+.status-badge {
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: var(--box-shadow);
+}
+
+/* Sector Content Area */
+.sector-content {
+  background: white;
+  border-radius: var(--border-radius);
+  border: 2px solid #dee2e6;
+  border-top: none;
+  padding: 2rem;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Progress bars */
+.progress {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.progress-bar {
+  border-radius: 10px;
+}
+
+/* Icon containers */
+.icon-container {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem 0;
+  }
+  
+  .sector-content {
+    padding: 1rem;
+  }
+  
+  .status-badge {
+    position: static;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+}/* S
+ectorTabs Component Styles */
+.sector-tabs-container {
+  background: white;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  box-shadow: var(--box-shadow);
+}
+
+.sector-tabs-container .nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: 0;
+}
+
+.sector-tabs-container .nav-link {
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 1rem 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #6c757d;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sector-tabs-container .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  color: #495057;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.sector-tabs-container .nav-link.active {
+  background-color: white;
+  color: #212529;
+  border-bottom-color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Estado-specific border colors for active tabs */
+.sector-tabs-container .nav-link.active.border-success {
+  border-bottom-color: var(--success-color);
+}
+
+.sector-tabs-container .nav-link.active.border-warning {
+  border-bottom-color: var(--warning-color);
+}
+
+.sector-tabs-container .nav-link.active.border-primary {
+  border-bottom-color: var(--primary-color);
+}
+
+/* Sector name styling */
+.sector-tabs-container .sector-name {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+/* Sector info styling */
+.sector-tabs-container .sector-info {
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Estado icon positioning */
+.sector-tabs-container .nav-link .position-absolute {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* Responsive adjustments for tabs */
+@media (max-width: 992px) {
+  .sector-tabs-container .nav-link {
+    padding: 0.75rem 1rem;
+    min-height: 70px;
+  }
+  
+  .sector-tabs-container .sector-name {
+    font-size: 0.8rem;
+  }
+  
+  .sector-tabs-container .sector-info {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sector-tabs-container .nav-link {
+    padding: 0.5rem 0.75rem;
+    min-height: 60px;
+  }
+  
+  .sector-tabs-container .sector-name {
+    font-size: 0.75rem;
+  }
+  
+  .sector-tabs-container .sector-info {
+    font-size: 0.65rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .sector-tabs-container .sector-info span {
+    display: block;
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "sector_id": 1,
+    "humedad": 65,
+    "temperatura": 22,
+    "flujo_agua": 0,
+    "ahorro": 45,
+    "timestamp": "2025-10-15T16:15:40.454Z"
+  },
+  {
+    "id": 2,
+    "sector_id": 2,
+    "humedad": 48,
+    "temperatura": 28,
+    "flujo_agua": 25.5,
+    "ahorro": 38,
+    "timestamp": "2025-10-15T16:15:40.454Z"
+  },
+  {
+    "id": 3,
+    "sector_id": 3,
+    "humedad": 72,
+    "temperatura": 24,
+    "flujo_agua": 18.2,
+    "ahorro": 52,
+    "timestamp": "2025-10-15T16:15:40.454Z"
+  },
+  {
+    "id": 4,
+    "sector_id": 4,
+    "humedad": 45,
+    "temperatura": 26,
+    "flujo_agua": 0,
+    "ahorro": 41,
+    "timestamp": "2025-10-15T16:15:40.454Z"
+  }
+]

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOZ SmartSoil - Dashboard de Riego Inteligente</title>
+    <meta name="description" content="Sistema de monitoreo y control de riego inteligente para agricultura de precisión">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-custom border-bottom">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between py-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="logo-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="mb-0 fs-5 fw-bold">KOZ SmartSoil</h1>
+                        <p class="mb-0 text-muted small">Dashboard de Riego</p>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="text-end d-none d-md-block">
+                        <p class="mb-0 small fw-semibold">08:48 p.m.</p>
+                        <p class="mb-0 text-muted" style="font-size: 0.75rem;">mar, 14 oct</p>
+                    </div>
+                    <button class="btn btn-icon position-relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="btn btn-primary d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" x2="12" y1="15" y2="3"/>
+                        </svg>
+                        <span class="d-none d-md-inline">Exportar datos</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-fluid py-4">
+        <!-- Hero Banner -->
+        <div class="hero-banner mb-4">
+            <div class="row align-items-center g-4">
+                <div class="col-md-6">
+                    <h2 class="display-6 fw-bold mb-1">Campo San José</h2>
+                    <p class="mb-0">Melipilla, Región Metropolitana · 8.0 hectáreas</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-3 text-center">
+                        <div class="col-3">
+                            <div class="display-4 fw-bold">4</div>
+                            <div class="small">Zonas activas</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="display-4 fw-bold">23</div>
+                            <div class="small">Sensores</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="display-4 fw-bold">11</div>
+                            <div class="small">Válvulas</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="display-4 fw-bold">47%</div>
+                            <div class="small">Ahorro promedio</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sector Tabs -->
+        <div class="sector-tabs mb-4">
+            <div class="d-flex gap-2 overflow-auto pb-2">
+                <button class="sector-tab active">
+                    <span class="status-dot status-primary"></span>
+                    <div class="text-start">
+                        <div class="fw-semibold small">Sector Norte - Paltos</div>
+                        <div class="text-muted" style="font-size: 0.75rem;">2.5 ha · 4 sensores</div>
+                    </div>
+                </button>
+                <button class="sector-tab">
+                    <span class="status-dot status-warning"></span>
+                    <div class="text-start">
+                        <div class="fw-semibold small">Sector Sur - Tomates</div>
+                        <div class="text-muted" style="font-size: 0.75rem;">1.8 ha · 6 sensores</div>
+                    </div>
+                </button>
+                <button class="sector-tab">
+                    <span class="status-dot status-warning"></span>
+                    <div class="text-start">
+                        <div class="fw-semibold small">Invernadero A - Lechugas</div>
+                        <div class="text-muted" style="font-size: 0.75rem;">0.5 ha · 8 sensores</div>
+                    </div>
+                </button>
+                <button class="sector-tab">
+                    <span class="status-dot status-muted"></span>
+                    <div class="text-start">
+                        <div class="fw-semibold small">Sector Este - Maíz</div>
+                        <div class="text-muted" style="font-size: 0.75rem;">3.2 ha · 5 sensores</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Sector Info -->
+        <div class="d-flex justify-content-between align-items-start mb-4">
+            <div>
+                <h3 class="h4 fw-bold mb-1">Sector Norte - Paltos</h3>
+                <p class="text-muted small mb-0">2.5 ha · 4 sensores · 2 válvulas</p>
+            </div>
+            <span class="badge badge-success">Óptimo</span>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card metric-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="metric-icon bg-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="small fw-medium text-muted">Humedad</div>
+                                <div class="text-muted" style="font-size: 0.75rem;">Suelo actual</div>
+                            </div>
+                        </div>
+                        <div class="display-5 fw-bold mb-2">65%</div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-secondary" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card metric-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="metric-icon bg-warning">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="small fw-medium text-muted">Temperatura</div>
+                                <div class="text-muted" style="font-size: 0.75rem;">Suelo actual</div>
+                            </div>
+                        </div>
+                        <div class="display-5 fw-bold mb-2">22°C</div>
+                        <div class="text-warning small fw-medium">Rango óptimo: 18-25°C</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card metric-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="metric-icon bg-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="small fw-medium text-muted">Flujo de agua</div>
+                                <div class="text-muted" style="font-size: 0.75rem;">Litros/minuto</div>
+                            </div>
+                        </div>
+                        <div class="display-5 fw-bold mb-2">0</div>
+                        <div class="text-muted small fw-medium">Sin riego</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card metric-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="metric-icon bg-info">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                                    <polyline points="16 7 22 7 22 13"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="small fw-medium text-muted">Ahorro</div>
+                                <div class="text-muted" style="font-size: 0.75rem;">Este mes</div>
+                            </div>
+                        </div>
+                        <div class="display-5 fw-bold mb-2">45%</div>
+                        <div class="text-info small fw-medium">vs. riego tradicional</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart and Controls -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="h5 fw-bold mb-0">Datos Históricos</h3>
+                            <div class="btn-group btn-group-sm">
+                                <button class="btn btn-primary">Últimas 24h</button>
+                                <button class="btn btn-outline-secondary">7 días</button>
+                                <button class="btn btn-outline-secondary">30 días</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="btn-group btn-group-sm mb-3">
+                                <button class="btn btn-secondary">Humedad del Suelo (%)</button>
+                                <button class="btn btn-outline-secondary">Temperatura (°C)</button>
+                                <button class="btn btn-outline-secondary">Riego Activo</button>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:hsl(217, 91%, 60%);stop-opacity:0.4" />
+                                        <stop offset="100%" style="stop-color:hsl(217, 91%, 60%);stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                                <polyline fill="none" stroke="hsl(217, 91%, 60%)" stroke-width="2" points="0,80 50,60 100,70 150,50 200,40 250,45 300,60 350,65 400,58 450,62 500,70 550,75 600,65"/>
+                                <polyline fill="url(#chartGradient)" points="0,80 50,60 100,70 150,50 200,40 250,45 300,60 350,65 400,58 450,62 500,70 550,75 600,65 600,200 0,200" opacity="0.3"/>
+                            </svg>
+                            <div class="chart-labels">
+                                <span>20:48</span>
+                                <span>00:48</span>
+                                <span>04:48</span>
+                                <span>08:48</span>
+                                <span>12:48</span>
+                                <span>16:48</span>
+                                <span>20:48</span>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-4">
+                                <div class="stat-box bg-secondary-light">
+                                    <div class="display-6 fw-bold text-secondary">48.4%</div>
+                                    <div class="small text-muted mt-1">Humedad Actual</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-box bg-warning-light">
+                                    <div class="display-6 fw-bold text-warning">21.7°C</div>
+                                    <div class="small text-muted mt-1">Temperatura</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-box bg-light">
+                                    <div class="display-6 fw-bold text-success">INACTIVO</div>
+                                    <div class="small text-muted mt-1">Estado Riego</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold mb-3">Control Manual</h3>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success d-flex align-items-center justify-content-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                </svg>
+                                Iniciar riego ahora
+                            </button>
+                            <button class="btn btn-warning">Pausar riego</button>
+                            <button class="btn btn-secondary">Reiniciar ciclo</button>
+                            <button class="btn btn-outline-secondary">Configurar zona</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold mb-3">Estado del Sistema</h3>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="small text-muted">Sensores</span>
+                            <span class="small fw-semibold text-success">4/4 Activos</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="small text-muted">Válvulas</span>
+                            <span class="small fw-semibold text-success">2/4 Operativas</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="small text-muted">Presión</span>
+                            <span class="small fw-semibold">2.1 bar</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="small text-muted">Conectividad</span>
+                            <span class="small fw-semibold text-success">Excelente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                                <line x1="16" x2="16" y1="2" y2="6"/>
+                                <line x1="8" x2="8" y1="2" y2="6"/>
+                                <line x1="3" x2="21" y1="10" y2="10"/>
+                            </svg>
+                            <h3 class="h5 fw-bold mb-0">Programación de Riego</h3>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="schedule-box bg-light">
+                                    <div class="small text-muted mb-1">Último riego</div>
+                                    <div class="h4 fw-bold mb-0">Hace 2 horas</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="schedule-box schedule-primary">
+                                    <div class="small text-muted mb-1">Próximo riego</div>
+                                    <div class="h4 fw-bold mb-0 text-primary">En 4 horas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card summary-card">
+                    <div class="card-body text-white">
+                        <h3 class="h5 fw-bold mb-3">Resumen del Día</h3>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="small opacity-75">Agua utilizada</span>
+                            <span class="h5 fw-bold mb-0">1,250 L</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="small opacity-75">Agua ahorrada</span>
+                            <span class="h5 fw-bold mb-0">850 L</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="small opacity-75">Tiempo de riego</span>
+                            <span class="h5 fw-bold mb-0">3.5 hrs</span>
+                        </div>
+                        <div class="d-flex justify-content-between pt-3 border-top border-white border-opacity-25">
+                            <span class="small opacity-75">Eficiencia</span>
+                            <span class="display-6 fw-bold">94%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
